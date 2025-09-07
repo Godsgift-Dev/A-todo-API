@@ -8,14 +8,11 @@ class Task(BaseModel):
 
 to_do_list = []
 
-#add a task
+#add task
 @app.post("/tasks")
 def add_task(task: Task):
-    added_task = []
-    for task in task:
       to_do_list.append(task.model_dump())
-      added_task.append(task.model_dump())
-    return{"message": "Holla! you have added", "task": task}
+      return{"message": "Holla! you have added", "task": task}
 
 #get task
 @app.get("/all_tasks")
